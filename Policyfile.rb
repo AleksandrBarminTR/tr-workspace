@@ -10,7 +10,15 @@ name 'test_book'
 default_source :supermarket
 
 # run_list: chef-client will run these recipes in the order specified.
-run_list 'test_book::default'
+run_list 'test_book::default', 
+        'test_book::corretto_8',
+        'test_book::corretto_11',
+        'test_book::apache_maven',
+        'test_book::gradle',
+        'test_book::vscode',
+        'test_book::intellij_idea'
 
 # Specify a custom source for a single cookbook:
 cookbook 'test_book', path: '.'
+
+cookbook 'git', '~> 10.1.0', :supermarket
