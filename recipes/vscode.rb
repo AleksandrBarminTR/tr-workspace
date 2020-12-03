@@ -6,8 +6,13 @@ remote_file '/dev-tools/tmp/vscode.tar.gz' do
     action :create
 end
 
+destination_folder = '/dev-tools/'
+if not is_linux
+    destination_folder = '/dev-tools/vscode/'
+end
+
 archive_file '/dev-tools/tmp/vscode.tar.gz' do
-    destination '/dev-tools'
+    destination destination_folder
     overwrite true
     action :extract
 end

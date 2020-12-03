@@ -5,8 +5,10 @@
 # Copyright:: 2020, The Authors, All Rights Reserved.
 
 # Installing GIT
-git_client 'default' do
-    action :install
+if is_linux
+    git_client 'default' do
+        action :install
+    end
 end
 
 # Create ~/dev-tools directory
